@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="HomeAutomation.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:HomeAutomation"
+    Title="HomeSphere"
+    BackgroundColor="{StaticResource MenuBackgroundColor}"
+    Shell.BackgroundColor="{StaticResource MenuBackgroundColor}"
+    Shell.TitleColor="White"
+    Shell.ForegroundColor="White">
+
+    <!-- Flyout Header -->
+    <Shell.FlyoutHeader>
+        <StackLayout Padding="10" HorizontalOptions="Center">
+            <Image Source="logo.png" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center" />
+            <Label Text="Hello Smith," 
+                   FontSize="20" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" />
+            <Label Text="Welcome to your smart home" 
+                   FontSize="12" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" />
+        </StackLayout>
+    </Shell.FlyoutHeader>
+
+    <FlyoutItem Title="Home" Icon="home_icon.png">
+        <ShellContent ContentTemplate="{DataTemplate local:HomePage}" Icon="home_content_icon.png" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Groups" Icon="groups_icon.png">
+        <ShellContent ContentTemplate="{DataTemplate local:GroupsPage}" Icon="groups_content_icon.png" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Help" Icon="help_icon.png">
+        <ShellContent ContentTemplate="{DataTemplate local:HelpPage}" Icon="help_content_icon.png" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Security" Icon="security_icon.png">
+        <ShellContent ContentTemplate="{DataTemplate local:SecurityPage}" Icon="security_content_icon.png" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Tasks" Icon="tasks_icon.png">
+        <ShellContent ContentTemplate="{DataTemplate local:TasksPage}" Icon="tasks_content_icon.png" />
+    </FlyoutItem>
+
+</Shell>
