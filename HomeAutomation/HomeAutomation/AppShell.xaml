@@ -45,4 +45,8 @@
         <ShellContent ContentTemplate="{DataTemplate local:TasksPage}" Icon="tasks_content_icon.png" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Settings" Icon="settings_icon.png">
+        <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}" Icon="settings_content_icon.png" />
+    </FlyoutItem>
+
 </Shell>

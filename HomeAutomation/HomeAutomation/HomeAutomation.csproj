@@ -57,6 +57,52 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\AppIcon\AppIcon.scale-100.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.scale-125.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.scale-150.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.scale-200.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.scale-400.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-16.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-16_altform-lightunplated.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-16_altform-unplated.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-24.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-24_altform-lightunplated.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-24_altform-unplated.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-256.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-256_altform-lightunplated.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-256_altform-unplated.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-32.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-32_altform-lightunplated.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-32_altform-unplated.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-48.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-48_altform-lightunplated.png" />
+	  <None Remove="Resources\AppIcon\AppIcon.targetsize-48_altform-unplated.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Resources\AppIcon\AppIcon.scale-100.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.scale-125.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.scale-150.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.scale-200.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.scale-400.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-16.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-16_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-16_altform-unplated.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-24.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-24_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-24_altform-unplated.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-256.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-256_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-256_altform-unplated.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-32.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-32_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-32_altform-unplated.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-48.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-48_altform-lightunplated.png" />
+	  <Content Include="Resources\AppIcon\AppIcon.targetsize-48_altform-unplated.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
