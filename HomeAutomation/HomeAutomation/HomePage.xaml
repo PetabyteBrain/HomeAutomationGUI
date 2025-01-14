@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HomeAutomation.HomePage"
-             Title="HomePage">
-    <StackLayout>
-        <Label Text="Welcome to the Home Page!" 
-               VerticalOptions="CenterAndExpand" 
-               HorizontalOptions="CenterAndExpand" />
-    </StackLayout>
-</ContentPage>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:HomeAutomation"
+       x:Class="HomeAutomation.HomePage"
+       Title="HomePage">
+
+    <TabBar>
+        <ShellContent Title="Living Room" Icon="living_room_icon.png" ContentTemplate="{DataTemplate local:LivingRoomPage}" />
+        <ShellContent Title="Kitchen" Icon="kitchen_icon.png" ContentTemplate="{DataTemplate local:KitchenPage}" />
+        <ShellContent Title="Bedroom" Icon="bedroom_icon.png" ContentTemplate="{DataTemplate local:BedroomPage}" />
+        <ShellContent Title="Settings" Icon="settings_icon.png">
+            <ContentPage>
+                <StackLayout>
+                    <Label Text="Settings Page" 
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+            </ContentPage>
+        </ShellContent>
+        <ShellContent Title="Profile" Icon="profile_icon.png">
+            <ContentPage>
+                <StackLayout>
+                    <Label Text="Profile Page" 
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+            </ContentPage>
+        </ShellContent>
+    </TabBar>
+</Shell>

@@ -1,6 +1,6 @@
 namespace HomeAutomation;
 
-public partial class HomePage : ContentPage
+public partial class HomePage : Shell
 {
 	public HomePage()
 	{

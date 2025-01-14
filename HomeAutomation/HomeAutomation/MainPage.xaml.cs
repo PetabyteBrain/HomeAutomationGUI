@@ -1,25 +1,31 @@
-﻿namespace HomeAutomation
+﻿using Microsoft.Maui.Controls;
+
+namespace HomeAutomation
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnLoginClicked(object sender, EventArgs e)
         {
-            count++;
+            string username = UsernameEntry.Text;
+            string password = PasswordEntry.Text;
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
+            // Here you would typically validate the username and password
+            // For demonstration, let's assume any non-empty input is valid
+            if (!string.IsNullOrWhiteSpace(username) && !string.IsNullOrWhiteSpace(password))
+            {
+                // Navigate to HomePage after successful login
+                await Shell.Current.GoToAsync("Home");
+            }
             else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            {
+                await DisplayAlert("Login Failed", "Please enter valid credentials.", "OK");
+            }
         }
-    }
 
+    }
 }
