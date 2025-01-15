@@ -1,6 +1,6 @@
 namespace HomeAutomation;
 
-public partial class SecurityPage : ContentPage
+public partial class SecurityPage : Shell
 {
 	public SecurityPage()
 	{

@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HomeAutomation.BedroomPage">
+             x:Class="HomeAutomation.Cameras"
+             Title="Cameras">
     <ContentPage.Content>
         <ScrollView Orientation="Horizontal">
             <StackLayout x:Name="WidgetContainer" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10" Padding="10">
                 <!-- Empty box for adding new widgets -->
                 <Frame WidthRequest="180" HeightRequest="180" 
-               CornerRadius="10" 
-               BorderColor="Gray" 
-               BackgroundColor="LightGray" 
-               HasShadow="True" 
-               HorizontalOptions="Start">
+                   CornerRadius="10" 
+                   BorderColor="Gray" 
+                   BackgroundColor="LightGray" 
+                   HasShadow="True" 
+                   HorizontalOptions="Start">
                     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                         <Label Text="+" 
-                       FontSize="48" 
-                       TextColor="Gray" 
-                       HorizontalOptions="Center" />
+                           FontSize="48" 
+                           TextColor="Gray" 
+                           HorizontalOptions="Center" />
                         <Label Text="Add Widget" 
-                       FontSize="16" 
-                       TextColor="Gray" 
-                       HorizontalOptions="Center" />
+                           FontSize="16" 
+                           TextColor="Gray" 
+                           HorizontalOptions="Center" />
                     </StackLayout>
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnAddWidgetTapped" />

@@ -14,24 +14,6 @@
         <ShellContent Title="Living Room" Icon="living_room_icon.png" ContentTemplate="{DataTemplate local:LivingRoomPage}" />
         <ShellContent Title="Kitchen" Icon="kitchen_icon.png" ContentTemplate="{DataTemplate local:KitchenPage}" />
         <ShellContent Title="Bedroom" Icon="bedroom_icon.png" ContentTemplate="{DataTemplate local:BedroomPage}" />
-        <ShellContent Title="Settings" Icon="settings_icon.png">
-            <ContentPage>
-                <StackLayout>
-                    <Label Text="Settings Page" 
-                           VerticalOptions="CenterAndExpand" 
-                           HorizontalOptions="CenterAndExpand" />
-                </StackLayout>
-            </ContentPage>
-        </ShellContent>
-        <ShellContent Title="Profile" Icon="profile_icon.png">
-            <ContentPage>
-                <StackLayout>
-                    <Label Text="Profile Page" 
-                           VerticalOptions="CenterAndExpand" 
-                           HorizontalOptions="CenterAndExpand" />
-                </StackLayout>
-            </ContentPage>
-        </ShellContent>
     </TabBar>
 
 </Shell>

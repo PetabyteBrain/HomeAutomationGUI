@@ -1,14 +1,14 @@
 ﻿namespace HomeAutomation;
 
-public partial class KitchenPage : ContentPage
+public partial class Cameras : ContentPage
 {
     private bool isFlipped = false;
-    public KitchenPage()
-    {
-        InitializeComponent();
-        AddWidgets(1); // Example: Add 5 widgets dynamically
-    }
+    public Cameras()
+	{
+		InitializeComponent();
 
+        AddWidgets(2); // Example: Add 5 widgets dynamically
+    }
     private void OnAddWidgetTapped(object sender, EventArgs e)
     {
         // Generate a new widget with a unique title
@@ -22,7 +22,7 @@ public partial class KitchenPage : ContentPage
     {
         for (int i = 0; i < count; i++)
         {
-            var widgetFrame = CreateWidget($"Light {i + 1}");
+            var widgetFrame = CreateWidget($"Cam {i + 1}");
             // Ensure WidgetsContainer exists in your XAML
             WidgetContainer.Children.Add(widgetFrame);
         }
@@ -32,8 +32,8 @@ public partial class KitchenPage : ContentPage
     {
         var frame = new Frame
         {
-            WidthRequest = 180,
-            HeightRequest = 180,
+            WidthRequest = 250, // Increase size of the widget
+            HeightRequest = 250, // Increase size of the widget
             Margin = new Thickness(10),
             Padding = 10,
             CornerRadius = 10,
@@ -50,10 +50,7 @@ public partial class KitchenPage : ContentPage
         };
 
         frontSide.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
-        frontSide.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
         frontSide.RowDefinitions.Add(new RowDefinition { Height = GridLength.Star });
-
-        frontSide.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
         frontSide.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
         frontSide.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
 
@@ -160,57 +157,26 @@ public partial class KitchenPage : ContentPage
         };
         backContent.Children.Add(backButton);
 
-        // Add Title Label and Subtitle to the frontSide
+        // Add Title Label to the frontSide
         frontSide.Children.Add(titleLabel);
         Grid.SetRow(titleLabel, 0);
-        Grid.SetColumn(titleLabel, 2);
+        Grid.SetColumn(titleLabel, 1);
 
-        var subtitleLabel = new Label
+        // Add the camera image instead of the switch and subtitle
+        var cameraImage = new Image
         {
-            Text = "Control",
-            FontAttributes = FontAttributes.Italic,
-            HorizontalOptions = LayoutOptions.Center,
-            VerticalOptions = LayoutOptions.Start,
-            FontSize = 14
-        };
-        frontSide.Children.Add(subtitleLabel);
-        Grid.SetRow(subtitleLabel, 1);
-        Grid.SetColumn(subtitleLabel, 0);
-
-        // Add Control Area
-        var controlStack = new StackLayout
-        {
+            Source = "placeholder.png", // Replace with your camera image
+            Aspect = Aspect.AspectFill,
+            WidthRequest = 200,
+            HeightRequest = 150,
             HorizontalOptions = LayoutOptions.Center,
             VerticalOptions = LayoutOptions.Center
         };
 
-        // Add Switch Control
-        var controlSwitch = new Switch
-        {
-            IsToggled = true,
-            HorizontalOptions = LayoutOptions.Center,
-            VerticalOptions = LayoutOptions.Center
-        };
-        controlSwitch.Toggled += (s, e) => Console.WriteLine($"Switch toggled: {e.Value}");
-        controlStack.Children.Add(controlSwitch);
-
-        // Add Control Stack to the Front Side
-        frontSide.Children.Add(controlStack);
-        Grid.SetRow(controlStack, 2);
-        Grid.SetColumnSpan(controlStack, 3);
-
-        // Add Icon Image
-        var iconImage = new Image
-        {
-            Source = "lightbulb_icon.png",
-            WidthRequest = 30,
-            HeightRequest = 30,
-            HorizontalOptions = LayoutOptions.Start,
-            VerticalOptions = LayoutOptions.Center
-        };
-        frontSide.Children.Add(iconImage);
-        Grid.SetRow(iconImage, 0);
-        Grid.SetColumn(iconImage, 1);
+        frontSide.Children.Add(cameraImage);
+        Grid.SetRow(cameraImage, 1);
+        Grid.SetColumn(cameraImage, 0);
+        Grid.SetColumnSpan(cameraImage, 2);
 
         // Add Menu Button to flip the widget
         var menuButton = new Button
