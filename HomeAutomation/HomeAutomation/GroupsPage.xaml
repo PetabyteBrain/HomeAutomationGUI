@@ -1,12 +1,90 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HomeAutomation.GroupsPage"
-             Title="GroupsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:Class="HomeAutomation.GroupsPage">
+
+    <ContentPage.Content>
+        <ScrollView Padding="10">
+            <StackLayout>
+
+                <!-- Box 1: Group Settings -->
+                <Frame BackgroundColor="Gray" Padding="10" Margin="0,0,0,10">
+                    <StackLayout>
+                        <Label Text="Groups Settings" FontSize="20" HorizontalOptions="Center" />
+                        <Picker x:Name="groupPicker" SelectedIndexChanged="OnGroupSelected">
+                            <Picker.ItemsSource>
+                                <!-- Example data, this will be dynamically filled -->
+                            </Picker.ItemsSource>
+                        </Picker>
+                        <Entry x:Name="groupNameEntry" Placeholder="New group name" />
+                        <Button Text="Submit" Clicked="OnRenameGroupClicked" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Box 2: All Groups Table -->
+                <Frame BackgroundColor="Gray" Padding="10" Margin="0,0,0,10">
+                    <StackLayout>
+                        <Label Text="All Groups" FontSize="20" HorizontalOptions="Center" />
+                        <CollectionView x:Name="groupsTable">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <Label Text="{Binding Name}" FontSize="16" Grid.Row="0" />
+                                        <Label Text="Users: {Binding UserCount}, Devices: {Binding DeviceCount}" Grid.Row="1" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Box 3: Users in Group -->
+                <Frame BackgroundColor="Gray" Padding="10" Margin="0,0,0,10">
+                    <StackLayout>
+                        <Label Text="Users in Group" FontSize="20" HorizontalOptions="Center" />
+                        <Picker x:Name="userGroupPicker" SelectedIndexChanged="OnUserGroupSelected">
+                            <Picker.ItemsSource>
+                                <!-- This will be filled dynamically with group names -->
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <!-- List of Users in selected group -->
+                        <CollectionView x:Name="usersInGroupList">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Padding="5" Orientation="Horizontal">
+                                        <Label Text="{Binding Username}" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding FirstName}" HorizontalOptions="StartAndExpand" />
+                                        <Label Text="{Binding LastName}" HorizontalOptions="StartAndExpand" />
+                                        <Button Text="Edit" Clicked="OnEditUserClicked" />
+                                        <Button Text="Delete" Clicked="OnDeleteUserClicked" />
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <!-- Edit user fields -->
+                        <Entry x:Name="editUsernameEntry" Placeholder="Edit Username" />
+                        <Entry x:Name="editFirstNameEntry" Placeholder="Edit First Name" />
+                        <Entry x:Name="editLastNameEntry" Placeholder="Edit Last Name" />
+                        <Button Text="Save Changes" Clicked="OnSaveUserChangesClicked" />
+                    </StackLayout>
+                </Frame>
+
+                <!-- Box 4: Create Group -->
+                <Frame BackgroundColor="Gray" Padding="10" Margin="0,0,0,10">
+                    <StackLayout>
+                        <Label Text="Create New Group" FontSize="20" HorizontalOptions="Center" />
+                        <Entry x:Name="newGroupEntry" Placeholder="Group Name" />
+                        <Button Text="Create" Clicked="OnCreateGroupClicked" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
