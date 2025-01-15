@@ -5,8 +5,9 @@
              Title="Locks">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="The Locks™ Feature will come in a future Update"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center"
+            FontSize="Large"/>
     </VerticalStackLayout>
 </ContentPage>

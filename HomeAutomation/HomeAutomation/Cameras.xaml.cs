@@ -32,18 +32,18 @@ public partial class Cameras : ContentPage
     {
         var frame = new Frame
         {
-            WidthRequest = 250, // Increase size of the widget
-            HeightRequest = 250, // Increase size of the widget
+            WidthRequest = 250,
+            HeightRequest = 250,
             Margin = new Thickness(10),
             Padding = 10,
             CornerRadius = 10,
             HasShadow = true,
-            BackgroundColor = Color.FromHex("#1EE3CF") // Set the background color here
+            BackgroundColor = Color.FromHex("#1EE3CF") // Initial color
         };
 
         var flipGrid = new Grid();
 
-        // Declare the front side of the widget first
+        // Declare the front side of the widget
         var frontSide = new Grid
         {
             IsVisible = true
@@ -86,63 +86,6 @@ public partial class Cameras : ContentPage
 
         backContent.Children.Add(nameEntry);
 
-        // Radio buttons for input type
-        var inputTypeStack = new StackLayout
-        {
-            Orientation = StackOrientation.Horizontal,
-            HorizontalOptions = LayoutOptions.Center
-        };
-
-        var radioButton1 = new RadioButton
-        {
-            Content = "Option 1",
-            GroupName = "InputType",
-            IsChecked = true
-        };
-
-        var radioButton2 = new RadioButton
-        {
-            Content = "Option 2",
-            GroupName = "InputType"
-        };
-
-        inputTypeStack.Children.Add(radioButton1);
-        inputTypeStack.Children.Add(radioButton2);
-        backContent.Children.Add(inputTypeStack);
-
-        // Color selection buttons
-        var colorButtonStack = new StackLayout
-        {
-            Orientation = StackOrientation.Horizontal,
-            HorizontalOptions = LayoutOptions.Center
-        };
-
-        var colorButton1 = new Button
-        {
-            Text = "Red",
-            BackgroundColor = Colors.Red
-        };
-        colorButton1.Clicked += (s, e) => frame.BackgroundColor = Colors.Red;
-
-        var colorButton2 = new Button
-        {
-            Text = "Green",
-            BackgroundColor = Colors.Green
-        };
-        colorButton2.Clicked += (s, e) => frame.BackgroundColor = Colors.Green;
-
-        var colorButton3 = new Button
-        {
-            Text = "Blue",
-            BackgroundColor = Colors.Blue
-        };
-        colorButton3.Clicked += (s, e) => frame.BackgroundColor = Colors.Blue;
-
-        colorButtonStack.Children.Add(colorButton1);
-        colorButtonStack.Children.Add(colorButton2);
-        colorButtonStack.Children.Add(colorButton3);
-        backContent.Children.Add(colorButtonStack);
-
         backSide.Content = backContent;
 
         var backButton = new Button
@@ -165,7 +108,7 @@ public partial class Cameras : ContentPage
         // Add the camera image instead of the switch and subtitle
         var cameraImage = new Image
         {
-            Source = "placeholder.png", // Replace with your camera image
+            Source = "placeholder.png", // Updated to your new placeholder name
             Aspect = Aspect.AspectFill,
             WidthRequest = 200,
             HeightRequest = 150,
@@ -177,6 +120,28 @@ public partial class Cameras : ContentPage
         Grid.SetRow(cameraImage, 1);
         Grid.SetColumn(cameraImage, 0);
         Grid.SetColumnSpan(cameraImage, 2);
+
+        // Fullscreen Button
+        var fullscreenButton = new Button
+        {
+            Text = "🔲", // Text icon for fullscreen
+            BackgroundColor = Colors.Transparent,
+            BorderColor = Colors.Transparent,
+            TextColor = Colors.Black,
+            FontSize = 24,
+            HorizontalOptions = LayoutOptions.EndAndExpand,
+            VerticalOptions = LayoutOptions.End
+        };
+
+        fullscreenButton.Clicked += async (s, e) =>
+        {
+            // Navigate to the FullscreenPage
+            await Navigation.PushAsync(new FullscreenPage());
+        };
+
+        frontSide.Children.Add(fullscreenButton);
+        Grid.SetRow(fullscreenButton, 2);
+        Grid.SetColumn(fullscreenButton, 1);
 
         // Add Menu Button to flip the widget
         var menuButton = new Button
@@ -203,8 +168,60 @@ public partial class Cameras : ContentPage
 
         frame.Content = flipGrid;
 
+        // Color buttons for changing widget color
+        var colorButtonStack = new StackLayout
+        {
+            Orientation = StackOrientation.Horizontal,
+            HorizontalOptions = LayoutOptions.Center
+        };
+
+        // Red color button
+        var redButton = new Button
+        {
+            Text = "Red",
+            BackgroundColor = Colors.Red
+        };
+        redButton.Clicked += (s, e) => frame.BackgroundColor = Colors.Red;
+
+        // Green color button
+        var greenButton = new Button
+        {
+            Text = "Green",
+            BackgroundColor = Colors.Green
+        };
+        greenButton.Clicked += (s, e) => frame.BackgroundColor = Colors.Green;
+
+        // Blue color button
+        var blueButton = new Button
+        {
+            Text = "Blue",
+            BackgroundColor = Colors.Blue
+        };
+        blueButton.Clicked += (s, e) => frame.BackgroundColor = Colors.Blue;
+
+        // Add color buttons to the stack layout
+        colorButtonStack.Children.Add(redButton);
+        colorButtonStack.Children.Add(greenButton);
+        colorButtonStack.Children.Add(blueButton);
+
+        // Add the color button stack to the back content
+        backContent.Children.Add(colorButtonStack);
+
+        // Add camera URL text at the end of the back side
+        var cameraUrlLabel = new Label
+        {
+            Text = "Cam URL: https://127.0.0.1:5000",
+            HorizontalOptions = LayoutOptions.Center,
+            VerticalOptions = LayoutOptions.EndAndExpand, // Push it to the bottom
+            FontSize = 14,
+            TextColor = Colors.Black
+        };
+        backContent.Children.Add(cameraUrlLabel);
+
         return frame;
     }
+
+
 
 
     private async void OnMenuButtonTapped(object sender, EventArgs e, Grid flipGrid)

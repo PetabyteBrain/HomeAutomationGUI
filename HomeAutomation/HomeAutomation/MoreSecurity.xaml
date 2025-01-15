@@ -5,8 +5,9 @@
              Title="MoreSecurity">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="More™ Features will come in a future Update"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+            HorizontalOptions="Center"
+            FontSize="Large"/>
+            </VerticalStackLayout>
 </ContentPage>
