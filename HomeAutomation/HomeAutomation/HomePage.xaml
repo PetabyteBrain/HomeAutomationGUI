@@ -3,9 +3,14 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:HomeAutomation"
        x:Class="HomeAutomation.HomePage"
-       Title="HomePage">
+       Title="HomePage"
+       Shell.TabBarBackgroundColor="#D9D9D9" 
+       Shell.TabBarForegroundColor="White"
+       Shell.TabBarTitleColor="Black"
+       Shell.TabBarUnselectedColor="Gray">
 
     <TabBar>
+
         <ShellContent Title="Living Room" Icon="living_room_icon.png" ContentTemplate="{DataTemplate local:LivingRoomPage}" />
         <ShellContent Title="Kitchen" Icon="kitchen_icon.png" ContentTemplate="{DataTemplate local:KitchenPage}" />
         <ShellContent Title="Bedroom" Icon="bedroom_icon.png" ContentTemplate="{DataTemplate local:BedroomPage}" />
@@ -28,4 +33,5 @@
             </ContentPage>
         </ShellContent>
     </TabBar>
+
 </Shell>

@@ -57,6 +57,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Class1.cs" />
+	  <Compile Remove="LightWidget.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\AppIcon\AppIcon.scale-100.png" />
 	  <None Remove="Resources\AppIcon\AppIcon.scale-125.png" />
 	  <None Remove="Resources\AppIcon\AppIcon.scale-150.png" />

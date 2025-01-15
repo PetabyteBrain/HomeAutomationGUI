@@ -5,6 +5,7 @@
 
     <ScrollView>
         <VerticalStackLayout
+            BackgroundColor="#F2F4F6"
             Padding="30,0"
             Spacing="25">
             <Image
@@ -15,22 +16,26 @@
 
             <Label
                 Text="Welcome to HomeSphere"
+                TextColor="#0D3F67"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
             <Label
                 Text="Please log in to continue"
+                TextColor="#0D3F67"
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level2" />
 
             <Entry
                 x:Name="UsernameEntry"
                 Placeholder="Username"
+                TextColor="#0D3F67"
                 Keyboard="Text" />
 
             <Entry
                 x:Name="PasswordEntry"
                 Placeholder="Password"
+                TextColor="#0D3F67"
                 IsPassword="True" />
 
             <Button

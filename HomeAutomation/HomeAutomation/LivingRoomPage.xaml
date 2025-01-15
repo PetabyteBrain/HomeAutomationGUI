@@ -2,9 +2,125 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HomeAutomation.LivingRoomPage">
-    <StackLayout>
-        <Label Text="Welcome to the Living Room!" 
-               VerticalOptions="CenterAndExpand" 
-               HorizontalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ContentPage.Content>
+        <Grid VerticalOptions="Center" HorizontalOptions="Center">
+            <!-- Widget Element -->
+            <Frame WidthRequest="180" HeightRequest="180" 
+                   Margin="10" Padding="10" CornerRadius="10" HasShadow="True">
+                <ContentView x:Name="WidgetContentView">
+                    <Grid x:Name="FlipGrid">
+                        <!-- Front Side -->
+                        <Grid x:Name="FrontSide">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Menu Bar -->
+                            <Button Grid.Column="0" Grid.Row="0" 
+                                    VerticalOptions="Start" 
+                                    HorizontalOptions="Start" 
+                                    BackgroundColor="Transparent" 
+                                    BorderColor="Transparent" 
+                                    TextColor="#0D3F67" 
+                                    FontSize="24" 
+                                    Text="☰">
+                                <Button.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnMenuButtonTapped" />
+                                </Button.GestureRecognizers>
+                            </Button>
+
+                            <!-- Title -->
+                            <Label Text="Light1" 
+                                   Grid.Column="2" 
+                                   Grid.Row="0" 
+                                   VerticalOptions="Start" 
+                                   HorizontalOptions="Center" 
+                                   FontAttributes="Bold" 
+                                   FontSize="Medium" />
+
+                            <!-- Subtitle -->
+                            <Label Text="Control" 
+                                   Grid.Column="0" 
+                                   Grid.Row="1" 
+                                   VerticalOptions="Start" 
+                                   HorizontalOptions="Center" 
+                                   FontAttributes="Italic" 
+                                   FontSize="14" />
+
+                            <!-- Control Area -->
+                            <StackLayout x:Name="ControlArea" Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="Center" VerticalOptions="Center">
+                                <!-- Switch Control -->
+                                <Switch x:Name="ControlSwitch" IsToggled="True" Toggled="OnSwitchToggled" />
+
+                                <!-- Radio Buttons Control -->
+                                <StackLayout x:Name="RadioButtonStack" Orientation="Horizontal" IsVisible="False">
+                                    <RadioButton x:Name="RadioButtonOn" Content="On" CheckedChanged="OnRadioButtonCheckedChanged" IsChecked="True" />
+                                    <RadioButton x:Name="RadioButtonOff" Content="Off" CheckedChanged="OnRadioButtonCheckedChanged" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <!-- Icon -->
+                            <Image Source="lightbulb_icon.png" 
+                                   Grid.Column="1" 
+                                   VerticalOptions="Center" 
+                                   HorizontalOptions="Start" 
+                                   WidthRequest="30" 
+                                   HeightRequest="30" />
+                        </Grid>
+
+                        <!-- Back Side -->
+                        <Grid x:Name="BackSide" IsVisible="False">
+                            <ScrollView>
+                                <StackLayout Padding="10">
+                                    <!-- Back Button -->
+                                    <Button Text="Back" Clicked="OnBackButtonTapped" />
+
+                                    <!-- Title Entry -->
+                                    <Label Text="Widget Title" FontSize="Medium" />
+                                    <Entry x:Name="TitleEntry" Placeholder="Enter widget title" />
+
+                                    <!-- Type of Entry -->
+                                    <Label Text="Select Entry Type" FontSize="Medium" />
+                                    <StackLayout>
+                                        <RadioButton GroupName="EntryType" Content="Switch" CheckedChanged="OnEntryTypeChanged" />
+                                        <RadioButton GroupName="EntryType" Content="Radio Buttons" CheckedChanged="OnEntryTypeChanged" />
+                                    </StackLayout>
+
+                                    <!-- Icon Selection -->
+                                    <Label Text="Select Icon" FontSize="Medium" />
+                                    <StackLayout>
+                                        <RadioButton GroupName="IconSelection" Content="Icon 1" CheckedChanged="OnIconSelectionChanged" />
+                                        <RadioButton GroupName="IconSelection" Content="Icon 2" CheckedChanged="OnIconSelectionChanged" />
+                                        <RadioButton GroupName="IconSelection" Content="Icon 3" CheckedChanged="OnIconSelectionChanged" />
+                                    </StackLayout>
+
+                                    <!-- Color Selection -->
+                                    <Label Text="Select Widget Color" FontSize="Medium" />
+                                    <StackLayout>
+                                        <RadioButton GroupName="ColorSelection" Content="Red" CheckedChanged="OnColorSelectionChanged" />
+                                        <RadioButton GroupName="ColorSelection" Content="Green" CheckedChanged="OnColorSelectionChanged" />
+                                        <RadioButton GroupName="ColorSelection" Content="Blue" CheckedChanged="OnColorSelectionChanged" />
+                                    </StackLayout>
+
+                                    <!-- Color Preview -->
+                                    <BoxView x:Name="ColorPreview" HeightRequest="50" WidthRequest="50" BackgroundColor="Gray" />
+                                </StackLayout>
+                            </ScrollView>
+                        </Grid>
+
+
+                    </Grid>
+                </ContentView>
+            </Frame>
+            
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
